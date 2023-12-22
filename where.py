@@ -33,3 +33,19 @@ print(indics)
 d = tf.gather_nd(a,indics)
 print(d)
 # tf.Tensor([0.45168066 0.23196214 0.83259153 1.5909908  0.1435056 ], shape=(5,), dtype=float32)
+
+print(mask)
+# tf.Tensor(
+# [[ True False  True]
+#  [ True False False]
+#  [ True  True False]], shape=(3, 3), dtype=bool)
+A = tf.ones([3,3])
+B = tf.zeros([3,3])
+
+#where(mask,为Ture使用这个tensor里的值,为False使用这个tensor里的值)
+out = tf.where(mask,A,B)
+print(out)
+# tf.Tensor(
+# [[1. 0. 1.]
+#  [1. 0. 0.]
+#  [1. 1. 0.]], shape=(3, 3), dtype=float32)
